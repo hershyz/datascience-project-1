@@ -1,6 +1,6 @@
 import common_lib
 
-csv_path = 'healthcare-dataset-stroke-data.csv'
+csv_path = 'dataset_numerical.csv'
 dataframe = common_lib.dataframe(csv_path)
 
 map = {}
