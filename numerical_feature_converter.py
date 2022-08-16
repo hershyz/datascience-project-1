@@ -1,6 +1,6 @@
 import common_lib
 
-csv_path = 'dataset_numerical.csv'
+csv_path = 'nostroke.csv'
 dataframe = common_lib.dataframe(csv_path)
 
 map = {}

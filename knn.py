@@ -1,4 +1,5 @@
 import math
+import common_lib
 
 def classify(point, dataframe):
 
@@ -39,3 +40,14 @@ def classify(point, dataframe):
             max_cat = cat
 
     return max_cat
+
+dataframe = common_lib.dataframe('dataset_numerical_small.csv')
+total = 0
+correct = 0
+for point in dataframe:
+    real = point[len(point) - 1]
+    predicted = classify(point, dataframe)
+    total += 1
+    if predicted == real:
+        correct += 1
+print('accuracy: ' + str(correct / total))
