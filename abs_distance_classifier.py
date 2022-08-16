@@ -23,15 +23,27 @@ def classify(point, model):
 
     return min_cat
 
+
+
+
+
+
 dataframe = common_lib.dataframe('dataset_numerical.csv')
 model = common_lib.common_model('dataset_numerical.csv')
 
-total = 0
-correct = 0
+f = open('dataset_numerical_copy.csv', 'r')
+raw = f.readlines()
+feature_labels = raw[0].replace('\n', '')
+
+fnew = open('dataset_numerical_copy.csv', 'w')
+fnew.write(feature_labels)
+
 for point in dataframe:
-    real = point[len(point) - 1]
     predicted = classify(point, model)
-    total += 1
-    if predicted == real:
-        correct += 1
-print('accuracy: ' + str(correct / total))
+    point.append(predicted)
+    point_string = str(point)
+    point_string = point_string.replace('[', '')
+    point_string = point_string.replace(']', '')
+    point_string = point_string.replace('\'', '')
+    point_string = point_string.replace(' ', '')
+    fnew.write(point_string + '\n')
