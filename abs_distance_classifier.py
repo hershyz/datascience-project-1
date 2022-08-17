@@ -28,14 +28,14 @@ def classify(point, model):
 
 
 
-dataframe = common_lib.dataframe('dataset_numerical.csv')
-model = common_lib.common_model('dataset_numerical.csv')
+dataframe = common_lib.dataframe('features_removed.csv')
+model = common_lib.common_model('features_removed.csv')
 
-f = open('dataset_numerical_copy.csv', 'r')
+f = open('features_removed.csv', 'r')
 raw = f.readlines()
 feature_labels = raw[0].replace('\n', '')
 
-fnew = open('dataset_numerical_copy.csv', 'w')
+fnew = open('features_removed.csv', 'w')
 fnew.write(feature_labels)
 
 for point in dataframe:
